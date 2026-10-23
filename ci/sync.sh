@@ -69,7 +69,27 @@ ls -l device/realme/RMX1971/lineage_RMX1971.mk
 ls -l kernel/realme/sdm710/arch/arm64/configs/sdm670-perf_defconfig
 ls -l vendor/realme/RMX1971/RMX1971-vendor.mk
 ls -l packages/apps/FaceUnlock/common.mk
-grep -m1 "^[[:space:]]*<project path=\"packages/apps/FaceUnlock\"" .repo/manifests/snippets/axion.xml || true
-git -C packages/apps/FaceUnlock log --oneline -1
+
+echo "=== FORK CHECKS ==="
+test -f packages/apps/Settings/src/com/android/settings/preferences/BasePreferenceFragment.kt
+test -f packages/apps/Settings/src/com/android/settings/preferences/SecureSettingSeekBarPreference.java
+test -f packages/apps/Settings/src/com/android/settings/security/PowerOffVerify.java
+test -f packages/apps/Settings/res/xml/hbm_settings.xml
+grep -q "auto_hbm_lux_on" packages/apps/Settings/res/xml/hbm_settings.xml
+git -C packages/apps/Settings log --oneline -1
+git -C packages/apps/Settings log --oneline -1 | grep -q "Restore missing Axion preferences"
+
+test -f frameworks/base/services/core/java/com/android/server/display/brightness/HbmService.java
+grep -q "MSG_SETTINGS_CHANGED, key" frameworks/base/services/core/java/com/android/server/display/brightness/HbmService.java
+git -C frameworks/base log --oneline -1
+git -C frameworks/base log --oneline -1 | grep -q "pass the changed setting key"
+
+git -C packages/apps/FaceUnlock log --oneline -3
+git -C packages/apps/FaceUnlock log --oneline -3 | grep -q "replace analyzer frame pixels"
+
+grep -q "persist.sys.hbmservice_file=/sys/kernel/oppo_display/hbm" device/realme/RMX1971/device.mk
+grep -q "TARGET_SHIPS_AXION_KERNEL_MODULES := false" device/realme/RMX1971/BoardConfig.mk
+grep -q "TARGET_DISABLES_LIBPERF := false" device/realme/RMX1971/lineage_RMX1971.mk
+grep -q "sysfs_oppo_display:file" device/realme/RMX1971/sepolicy/vendor/system_server.te
 
 echo "=== AXION SYNC READY $(date -u) ==="

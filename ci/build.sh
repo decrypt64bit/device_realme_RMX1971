@@ -22,13 +22,19 @@ gk -s
 echo "=== LUNCH ==="
 axion RMX1971 userdebug va
 
+echo "=== SETTINGS PRECHECK ==="
+set +u
+m Settings
+set -u
+echo "=== SETTINGS PRECHECK OK ==="
+
 echo "=== BUILD ==="
 set +u
 ax -br -j"$(nproc)"
 set -u
 
 echo "=== BUILD OUTPUT ==="
-ls -lh out/target/product/RMX1971/axion-*.zip
-sha256sum out/target/product/RMX1971/axion-*.zip
+ls -lh out/target/product/RMX1971/*.zip
+sha256sum out/target/product/RMX1971/*.zip
 
 echo "=== AXION BUILD DONE $(date -u) ==="
