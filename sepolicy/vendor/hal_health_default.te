@@ -1,3 +1,7 @@
 # Allow hal_health_default to read and write to proc_touchpanel
 allow hal_health_default proc_touchpanel:dir search;
 allow hal_health_default proc_touchpanel:file rw_file_perms;
+
+# Charging control (Lineage health HAL): mmi_charging_enable and battery nodes
+allow hal_health_default sysfs_battery_supply:dir search;
+allow hal_health_default sysfs_battery_supply:file rw_file_perms;

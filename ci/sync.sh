@@ -91,5 +91,7 @@ grep -q "persist.sys.hbmservice_file=/sys/kernel/oppo_display/hbm" device/realme
 grep -q "TARGET_SHIPS_AXION_KERNEL_MODULES := false" device/realme/RMX1971/BoardConfig.mk
 grep -q "TARGET_DISABLES_LIBPERF := false" device/realme/RMX1971/lineage_RMX1971.mk
 grep -q "sysfs_oppo_display:file" device/realme/RMX1971/sepolicy/vendor/system_server.te
+grep -q "hal_health_default sysfs_battery_supply:file" device/realme/RMX1971/sepolicy/vendor/hal_health_default.te
+grep -q "ax_kernel_manager.xml:\$(TARGET_COPY_OUT_SYSTEM_EXT)" device/realme/RMX1971/device.mk
 
 echo "=== AXION SYNC READY $(date -u) ==="
