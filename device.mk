@@ -353,7 +353,8 @@ PRODUCT_COPY_FILES += \
 
 # Axion
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/kernel/ax_kernel_manager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_kernel_manager.xml
+    $(LOCAL_PATH)/configs/kernel/ax_kernel_manager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_kernel_manager.xml \
+    $(LOCAL_PATH)/configs/kernel/ax_kernel_manager.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/ax_kernel_manager.xml
 
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.hbmservice_file=/sys/kernel/oppo_display/hbm
