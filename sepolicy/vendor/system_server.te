@@ -9,6 +9,8 @@ allow system_server sysfs_devices_system_cpu:file rw_file_perms;
 allow system_server sysfs_gpu:dir { search open read getattr };
 allow system_server sysfs_gpu:file rw_file_perms;
 allow system_server sysfs:dir search;
+allow system_server sysfs_oppo_display:dir search;
+allow system_server sysfs_oppo_display:file { getattr open read write };
 allow system_server dcs_hwservice:hwservice_manager { add find };
 allow system_server media_rw_data_file:dir { write remove_name };
 allow system_server media_rw_data_file:file { unlink };

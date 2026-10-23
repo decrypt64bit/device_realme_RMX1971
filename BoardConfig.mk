@@ -6,6 +6,9 @@
 
 DEVICE_PATH := device/realme/RMX1971
 
+# No Axion kernel hooks in the 4.9 Mystralis kernel
+TARGET_SHIPS_AXION_KERNEL_MODULES := false
+
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true
 

@@ -14,6 +14,8 @@ HBM_NODE := /sys/kernel/oppo_display/hbm
 BYPASS_CHARGE_SUPPORTED := true
 TARGET_DOZE_PICKUP_PULSE_SUPPORTED := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
+# This device ships the libperfmgr power HAL
+TARGET_DISABLES_LIBPERF := false
 
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
