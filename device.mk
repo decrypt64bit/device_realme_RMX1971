@@ -332,6 +332,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.RealmeParts.rc \
+    init.axion.rmx1971.rc \
     init.oppo.rc \
     init.oppo.display.rc \
     init.qcom.early_boot.sh \
@@ -349,6 +350,13 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+
+# Axion
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/kernel/ax_kernel_manager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_kernel_manager.xml
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.hbmservice_file=/sys/kernel/oppo_display/hbm
 
 # Realme specific packages
 PRODUCT_PACKAGES += \

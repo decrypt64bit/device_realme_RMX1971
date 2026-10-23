@@ -7,6 +7,14 @@
 # Inherit some common AxionOS stuff
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_DISABLE_EPPE := true
+
+# Axion hardware features (must be set before common config is inherited)
+HBM_SUPPORTED := true
+HBM_NODE := /sys/kernel/oppo_display/hbm
+BYPASS_CHARGE_SUPPORTED := true
+TARGET_DOZE_PICKUP_PULSE_SUPPORTED := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit from RMX1971 device
@@ -23,6 +31,7 @@ PERF_GOV_SUPPORTED := true
 PERF_DEFAULT_GOV := schedutil
 GPU_FREQS_PATH := /sys/class/kgsl/kgsl-3d0/devfreq/available_frequencies
 GPU_MIN_FREQ_PATH := /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+LINEAGE_VERSION_APPEND_TIME_OF_DAY := true
 LINEAGE_VERSION_APPEND_TIME_OF_DAY := true
 
 # Lineage prebuilts

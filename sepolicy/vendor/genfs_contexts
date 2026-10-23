@@ -50,3 +50,11 @@ genfscon proc /sys/kernel/sched_pelt_multiplier                          u:objec
 # Axion GPU boost
 genfscon sysfs /sys/class/kgsl/kgsl-3d0/devfreq/available_frequencies u:object_r:sysfs_gpu:s0
 genfscon sysfs /sys/class/kgsl/kgsl-3d0/devfreq/min_freq u:object_r:sysfs_gpu:s0
+
+# Axion Battery / bypass charging
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/power_supply/battery u:object_r:sysfs_battery_supply:s0
+
+# Axion KGSL devfreq
+genfscon sysfs /devices/platform/soc/5000000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/soc/5000000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpuclk u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/soc/5000000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_busy_percentage u:object_r:sysfs_gpu:s0

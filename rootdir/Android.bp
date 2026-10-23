@@ -67,6 +67,13 @@ prebuilt_etc {
     soc_specific: true,
 }
 
+prebuilt_etc {
+    name: "init.axion.rmx1971.rc",
+    src: "etc/init.axion.rmx1971.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
 // Init scripts
 
 sh_binary {
