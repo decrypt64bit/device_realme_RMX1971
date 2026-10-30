@@ -56,3 +56,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceProduct=RMX1971 \
     SystemDevice=RMX1971 \
     SystemName=RMX1971
+
+# This device ships its own sensors multihal with stem
+# android.hardware.sensors@2.0-service.multihal. Drop any other provider of that
+# name and duplicate package entries so ninja never sees two rules for one path.
+PRODUCT_PACKAGES := $(sort $(filter-out android.hardware.sensors@2.0-service.multihal,$(PRODUCT_PACKAGES)))
