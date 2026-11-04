@@ -61,3 +61,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 # android.hardware.sensors@2.0-service.multihal. Drop any other provider of that
 # name and duplicate package entries so ninja never sees two rules for one path.
 PRODUCT_PACKAGES := $(sort $(filter-out android.hardware.sensors@2.0-service.multihal,$(PRODUCT_PACKAGES)))
+
+# The same generic multihal can enter through the debug/eng/test package lists.
+PRODUCT_PACKAGES_DEBUG := $(sort $(filter-out android.hardware.sensors@2.0-service.multihal,$(PRODUCT_PACKAGES_DEBUG)))
+PRODUCT_PACKAGES_ENG := $(sort $(filter-out android.hardware.sensors@2.0-service.multihal,$(PRODUCT_PACKAGES_ENG)))
+PRODUCT_PACKAGES_TESTS := $(sort $(filter-out android.hardware.sensors@2.0-service.multihal,$(PRODUCT_PACKAGES_TESTS)))
